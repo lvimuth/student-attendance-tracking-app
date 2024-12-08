@@ -5,4 +5,6 @@ const CreateNewStudent = (data) => {
   return axios.post("/api/students", data);
 };
 
-export default { GetAllGrades, CreateNewStudent };
+const GetAllStudents = () => axios.get("/api/students");
+
+export default { GetAllGrades, CreateNewStudent, GetAllStudents };
