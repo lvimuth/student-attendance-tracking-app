@@ -2,6 +2,7 @@
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { GraduationCap, LayoutIcon, Settings } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function SideNav() {
@@ -11,37 +12,39 @@ function SideNav() {
       id: 1,
       name: "Dashboard",
       icon: LayoutIcon,
-      path: "dashboard",
+      path: "/dashboard",
     },
     {
       id: 2,
       name: "Students",
       icon: GraduationCap,
-      path: "dashboard/students",
+      path: "/dashboard/students",
     },
     {
       id: 3,
       name: "Attendance",
       icon: GraduationCap,
-      path: "dashboard/attendance",
+      path: "/dashboard/attendance",
     },
     {
       id: 4,
       name: "Settings",
       icon: Settings,
-      path: "dashboard/settings",
+      path: "/dashboard/settings",
     },
   ];
   return (
     <div className="border shadow-md h-screen p-5">
-      <Image src={"logo.svg"} width={180} height={50} alt="" />
+      <Image src={"/logo.svg"} width={180} height={50} alt="" />
       <hr className="my-5" />
       {menuList.map((menu, index) => (
         <div key={index} className="w-full">
-          <h2 className="flex gap-3 text-md p-4 items-center text-slate-500 hover:bg-primary cursor-pointer rounded-lg my-5 hover:text-white">
-            <menu.icon />
-            {menu.name}
-          </h2>
+          <Link href={menu.path}>
+            <h2 className="flex gap-3 text-md p-4 items-center text-slate-500 hover:bg-primary cursor-pointer rounded-lg my-5 hover:text-white">
+              <menu.icon />
+              {menu.name}
+            </h2>
+          </Link>
         </div>
       ))}
       <div className="flex gap-2 items-center bottom-5 fixed p-2">
