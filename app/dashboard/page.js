@@ -5,9 +5,9 @@ import React, { useEffect } from "react";
 
 function Dashboard() {
   const { setTheme } = useTheme();
-  useEffect(() => {
-    setTheme("dark");
-  }, []);
+  // useEffect(() => {
+  //   setTheme("light");
+  // }, []);
   return <div>Dashboard</div>;
 }
 
