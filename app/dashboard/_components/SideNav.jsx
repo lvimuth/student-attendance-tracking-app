@@ -3,9 +3,11 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { GraduationCap, LayoutIcon, Settings } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 function SideNav() {
+  const path = usePathname();
   const { user } = useKindeBrowserClient();
   const menuList = [
     {
@@ -40,7 +42,11 @@ function SideNav() {
       {menuList.map((menu, index) => (
         <div key={index} className="w-full">
           <Link href={menu.path}>
-            <h2 className="flex gap-3 text-md p-4 items-center text-slate-500 hover:bg-primary cursor-pointer rounded-lg my-5 hover:text-white">
+            <h2
+              className={`flex gap-3 text-md p-4 items-center text-slate-500 hover:bg-primary cursor-pointer rounded-lg my-5 hover:text-white ${
+                path == menu.path && "bg-primary text-white"
+              }`}
+            >
               <menu.icon />
               {menu.name}
             </h2>

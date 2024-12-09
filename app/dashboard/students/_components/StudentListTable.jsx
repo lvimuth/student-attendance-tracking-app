@@ -11,7 +11,7 @@ function StudentListTable({ studentList }) {
   const paginationPageSizeSelector = [20, 50, 100];
   const CustomButtons = (props) => {
     return (
-      <Button variant="destructive">
+      <Button variant="destructive" size={sm}>
         <Trash2 />
       </Button>
     );
